@@ -1,0 +1,130 @@
+---
+title: "Arbeidskrav1 reliabilitet"
+author: "Jacob Mollatt"
+date: "11/28/2021"
+output: html_document
+bibliography: referenser.bib
+output:
+  word_document: default
+editor_options: 
+  chunk_output_type: console
+---
+---
+
+## Introduksjon
+
+Maksimalt oksygenopptak (V&#775;O~2max~) ble først beskrevet av Hill og Lupton i 1923, og kan defineres som kroppens evne til å ta opp og forbruke oksygen per tidsenhet [@HillLupton; @BassetHowley].<!-- Jag la till dessa referenser, använd den inbyggda referenshandteringen för bästa resultat. Era andra referenser kan läggas till i dokuemnetet referenser.bib i bibtex-format, https://www.bioinformatics.org/texmed/ kan användas för att lasta ner dessa -->
+Innen toppidrett måles ofte det maksimale oksygenopptaket for å måle utøverens kapasitet opp mot arbeidskravet i den spesifikke idretten, og V&#775;O~2max~ kan i så måte også sees på som et mål på den aerobe effekten til utøveren (Bahr et al 1992)<!-- Fixa referensen -->. I Olympiatoppens testprotokoller benytter de flere definerte hjelpekriterier for å sikre at man faktisk har funnet deltakerens maksimale oksygenopptak. Følgende kriterier er beskrevet; platå i V&#775;O~2~<!-- Specialtecken och formatteringar kan läggas till i markdown med unicode och html-tecken OBS html tecken fungerar inte till word! --> er oppnådd, økning i ventilasjon med utflating av V&#775;O~2~ verdi, RER over 1.10/1.05<!-- Vilken gäller? -->, og blodlaktat over 8 (Tønnesen et al, 2017)<!-- Lägg till referens -->.
+
+
+## Metode
+
+I forkant av testen målte alle deltakerne kroppsvekten i samme klær som ble brukt under testen, men ble bedt om å ta av seg skoene. Kroppsvekten som senere brukt i beregningen av maksimalt oksygenopptak (ml kg^-1^ min^-1^) er kroppsvekten målt i forkant av test, etter at 300g har blitt trukket av for å ta høyde for vekten av klærne.<!-- Gör vi verkligen så här, verkar lite godtyckligt? --> For å sikre intern validitet ble deltakerne bedt om å avstå fra anstrengende fysisk aktivitet dagen før test, standardisere måltidet i forkant av test samt avstå fra inntak av koffein under de siste 12 timene før testen [@halperin]. Pre- og post-tester ble
+gjennomført på samme tid på døgnet under standardiserte forhold.. Post-test ble
+gjennomført 6 dager etter gjennomført pretest.<!-- Är det möjligt att förklara närmare vad som menas med pre- post? Man får intrycket av pre (före) något, men här ska det bara vara liknande förhållanden. Kanske undvika pre post och förklara i inledninga av metoden att två repeterade tester genomfördes, sedan kalla dessa test 1 och 2? --> Det ble ikke kontrollert for fysisk aktivitet mellom
+testdagene. 
+
+Alle deltakerne gjennomførte en 10 minutter lang oppvarmingsprotokoll på tredemøllen (Woodway<!-- Modell, Produktionsplats -->), beskrevet for deltakerne i forkant av testen. Denne oppvarmingsprotokollen bestod av fem minutter på 11-13 i Borg 6-20 RPE skala (Borg,1982<!--Lägg till referens -->), etterfulgt av 2x1min på starthastighet og stigning med 30 sekund mellom<!-- Lite förvirrande, var det en stigning var 30e sekund? -->. Siste tre min var også 11-13 i borg<!-- Anpassades då hastighet eller stigning? -->. Etter oppvarming var det to min pause før testen begynte. Starthastighet for begge kjønn<!-- Beskriv tabellen med försökspersonsdata i text--> var satt til 8km/t, med stigning på 10.5% og 5.5% for henholdsvis menn og kvinner. 
+
+&#775;V<sub>O2max</sub> ble målt ved hjelp av en metabolsk analysator med miksekammer (Vyntus CareFusion, <!-- produktionsort -->). Forut for alle tester ble analysatoren gass og volumkalibrert med en feillmargin på henholdsvis 2% og 0.2%<!-- Vad betyder det? -->. Analysatoren ble stilt inn til å gjøre målinger hvert 30sek, og V&#775;O~2max~ ble kalkulert gjennom å bruke snittet av de to høyeste påfølgende målingene av V&#775;O~2~. Underveis i testen mottok alle deltakerne en høylytt verbal oppmuntring fra testleder<!-- Vad äger Halperin om det? -->. Alle deltakerne gjennomførte også begge testene med samme testleder og med samme personer til stede i rommet for å redusere konfundering [@halperin].
+
+
+For hvert medgåtte minutt av testen ble hastigheten på møllen økt med 1km/t, helt til utmattelse, hvor testen ble avsluttet. Deltakernes hjertefrekvens (GARMIN/POLAR) ble også registrert under hele testen. Når testen ble avsluttet ble deltakerne bedt om å rapportere opplevd anstrengelse ved hjelp av Borg-skala (Borg,1982)<!-- Sätt in referens -->. Maksimal hjertefrekvens under testen ble også registrert. Ett minutt etter avsluttet test ble hjertefrekvens registrert, og det ble målt og analysert blodlaktat(BIOSEN).
+
+## Resultater
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+vo2g1 <- read_excel("data/vo2g1.xlsx")
+
+library(tidyverse) # 
+library(knitr)
+library(kableExtra)
+library(flextable)
+
+vo2g1 %>% # heter vo2data
+  select(fp, time, sex, age, height, weight) %>% 
+  # Velger fp, time, sex, age, height and weight
+  
+  filter(time == "pre") %>% # filter for å bare ha resulat fra pre
+  
+  group_by(sex) %>% # lager grupper for kjønn
+  mutate(n = n()) %>% # legger til variabel for å få antall deltagere per kjønn
+   pivot_longer(names_to = "variable", 
+               values_to = "value", 
+               cols = age:n) %>% # summerer alle varibler og legger til "varible" og "Value" som kolonne og variablene som rader
+   group_by(sex, variable) %>% # definerer gruppene på nytt 
+  summarise(m = mean(value), 
+            s = sd(value)) %>% # regner ut gjennomnsitt og sdandardavvik og legger til som kolonne
+  mutate(ms = if_else(variable == "n", as.character(m), paste0(signif(m, 3),  " (", signif(s, 3), ")"))) %>% # formaterer det på gunstig måte og bruker signif til å runde av desiamler.
+   ungroup() %>% # må til for å fjerne kolonner
+  select(-m, -s) %>% # Velger de jeg skal fjerne
+   pivot_wider(names_from = sex, 
+              values_from = ms) %>% # Henter navn fra sex og verdier fra values og danner en bredere tabell
+   mutate(variable = factor(variable, levels = c("n", "age", "weight", "height"), labels = c("N", "Alder (år)", "Vekt (kg)", "Høyde (cm)"))) %>% # Endrer navn på variabler 
+  arrange(variable) %>% 
+   flextable()  %>%
+   set_header_labels(variable = "",
+                    F = "Kvinner", M = "Menn") %>%
+  add_footer_row(values = "Verdier er gitt som gjennomsnitt og (Standardavvik)", colwidths = 3) %>%
+   autofit()
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(readxl)
+
+
+reliabilitet <- read_excel("data/realabilitet uttrekning.xlsx") %>%
+  mutate(diff = `VO2_max_ml/min post` - `VO2_max_ml/min pre`) %>% # Change/difference score
+  summarise(s = sd(diff),
+            m = mean(c(`VO2_max_ml/min post`, `VO2_max_ml/min pre`)), # mean
+            te = s / sqrt(2), # the typical error. 
+            cv = 100 * (te / m),
+             L = qt(0.975, 4) * s)  # Calculate as a percentage of the mean
+
+```
+
+
+
+<!-- Flytta detta tidigare i rapporten, detta är metod. -->Det var 11 deltakere i studien, samtlige deltakere er studenter ved Høgskolen i Innlandet. Deskriptive data for disse deltakerne er vist i Tabell 1, i Figur 1 kan man se utviklingen fra pre-test til post-test fordelt på kjønn. Det typiske målefeilet (typical error, [@hopkins]) fra pre til post-test er utregnet til å være `r round(reliabilitet$cv, 2)`%.
+
+<!-- All kod i figuren under kan settes i en pipe, lägg till figurtext till figuren med fig.cap i code chunken -->
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "Figurtekst legg til..."}
+
+
+library(readxl)
+library(ggtext)
+
+read_excel("data/vo2g1.xlsx") %>%
+  select(fp, time, vo2max = `VO2_max_ml/min`, sex)  %>%
+  mutate(time = factor(time, levels = c("pre", "post"), 
+                           labels = c("Pre-test", "Post-test"))) %>%
+  mutate(sex = factor(sex, levels =c("F", "M"),
+                      labels = c("Kvinner", "Menn"))) %>%
+  ggplot(aes(time, vo2max, color = sex, group = fp)) + 
+  geom_line() +
+  geom_point(size = 3) +
+  labs(x = "Test tidspunkt",
+       y = "VO<sub>2max</sub> (ml kg<sup>-1</sup> min<sup>-1</sup>) ", 
+       color = "Kjønn") +
+  theme_bw() +
+  theme(axis.text.x = element_text(color = "black", size = 12, face = "bold"), 
+        axis.title.y = element_markdown())
+```
+
+
+
+## Diskusjon
+<!-- Starta diskussion med de viktigaste resultaten, vilka var 4% TE -->
+Ettersom testing av maksimalt oksygenopptak er en test som gjennomføres til utmattelse, vil man kunne forvente en viss variasjon i testresultatene ettersom opplevd anstrengelse kan påvirkes av flere ulike variabler (Halperin, 2015)<!-- Sätt in referens -->. For å redusere konfundering<!-- osäker på om detta blir rätt på norsk, konfundering = tvil, det är en faktor eller variable som kan vara konfunderande, kan det stämma? Vi önksar dessutom undvika effekten av dessa konfunderande faktorer. Här krävs alltså lite tydligare språkbruk --> vil flere faktorer være nyttig å ta hensyn til under slik testing. Som nevnt i metoden vil standardisering av matinntak, koffeininntak, utstyr og tidspunkt for gjennomføring av test være med på å kunne sikre intern validitet i resultatene. Eksempler er deltakernes kjennskap til testen, verbal oppmuntring og personer tilstede under testen er andre faktorer som potensielt kan bidra til konfundering. Felles for alle faktorer er at graden av påvirkning på resultatene muligens reduseres ved hjelp av en standardisert testprotokoll. Deltakerne - og testlederne, sin kjennskap til testen er en annen faktor som trolig påvirker resultatene i vårt prosjekt. I dette tilfellet fantes det enkelte deltakere som hadde gjennomført en liknende test flere ganger, og en kan da forvente en mindre grad av variasjon mellom resultatene på pre og post test, sammenlignet med de deltakerne som gjennomførte testen for første gang på pretest. Dette fordi kjennskapen og kunnskapen de tilegnet seg på pre-test, trolig spiller inn på testresultatene. Standardfeilen<!-- hitta ett bättre ord eftersom standardfeil är standard error i statistiken --> på 4.04% kan også tyde på at enkelte av disse resultatene kan være utsatt for
+konfundering av ulik sort (Hopkins,2000)<!-- Fixa referenser -->. 
+
+Grunnen til at vi snakker om standardfeil er at når vi ønsker å måle påvirkningen av trening på en gruppe individer er det viktig å kunne si noe om hva som er endring og hva som er støy (målefeil). Desto mindre støy en test innebærer jo bedre er målingen.  Målet som brukes er standardfeil. Hva som danner denne variasjonen som representeres ved typical error er multifaktorelt, men hoveddelen er som oftest biologisk (Hopkins,2000).<!-- Fixa formatering --> 
+
+For å måle standardfeil har vi brukt within subject deviation metoden. Denne metoden påvirkes ikke av at gjennomsnittet endrer seg fra test til test (Hopkins,2000). Data for målinger i VO2max fra fem sertifiserte Australske laboratorier fastslo ett gjennomsnitt på 2.2% for standardfeil (Halperin, Pyne, and Martin 2015). Data fra det Australske institutt for sport har også fastslått at en standardfeil på omtrent 2% er riktig for både maksimal og submaksimal VO2 (Clark et al. 2007; Robertson et al. 2010; Saunders et al. 2009). Dette indikerer at med godt kalibrert utstyr og med utøvere som er godt vant med testingen vil en standardfeil på 2% for det biologiske, og analytiske være riktig (Halperin, Pyne, and Martin 2015). <!--  Fixa referenser och formattering av ex VO2max-->
+Vår standardfeil på 4.04% kan derfor tenkes å være et bilde hvordan det kan se ut med få deltakere, med ulikt utgangspunkt, men også uten skikkelig standardisering av treningshverdagen i forkant av testene. Det kan også tenkes at med et varierende nivå hos deltagerne kan enkelte oppleve en treningseffekt av test 1. Samtidig som andre kanskje ble slitne av å få en test inn i treningshverdagen. 
+
+## Referanser
