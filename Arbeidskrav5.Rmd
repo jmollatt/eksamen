@@ -1,0 +1,255 @@
+---
+title: "Arbeidskrav5"
+author: "Jacob Mollatt"
+date: "11/21/2021"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(exscidata)
+data("dxadata")
+data("strengthvolume")
+
+?dxadata
+?strengthvolume
+```
+
+```{r}
+library(tidyverse)
+#UTREGNING AV PROSENTVIS ENDRING MELLOM GRUPPENE I FETTFRI MASSE
+
+dat <- dxadata %>%
+  select(participant:include, sex, lean.left_leg, lean.right_leg) %>%
+  pivot_longer(names_to = "leg", 
+               values_to = "lean.legs", 
+               cols = lean.left_leg:lean.right_leg) %>%
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R"), 
+         sets = if_else(multiple == leg, "multiple", "single")) %>%
+  filter(include == "incl") %>%
+  select(participant, time, sex, include, sets, leg, lean.legs) %>%
+
+  pivot_wider(names_from = time, 
+              values_from = lean.legs) %>%
+  mutate(lbmleg.change = post - pre,
+         pre.mc = pre - mean(pre)) %>%
+  mutate(pros.change = ((post - pre) / pre) * 100) %>%
+  filter(!is.na(lbmleg.change)) %>%
+  
+  print()
+
+lbmleg <- dat %>%    
+  filter(!is.na(post)) %>%
+  group_by(sets) %>%
+  summarise(m = mean(pros.change),
+            sd = sd(pros.change)) %>%
+  mutate(meansd= paste0(signif(m, 3), "(", signif(sd, 3), ")")) %>%
+  select(sets, meansd) %>%
+  print()
+
+ 
+ lbmleg$sets
+ lbmleg$meansd
+
+library(lmerTest); library(lme4)
+
+m0 <- lme4::lmer(post ~ pre + sex + sets + (1|participant), data = dat)
+
+summary(m0)
+plot(m0)
+confint(m0)
+
+##Etter å ha justert for kjønn og baselineverdier viser deltakerne i gruppen med flere sett hadde i gjennomsnitt økt muskelmassen i beina med 123,5 gram mer(SD 55.17, 95% CI), enn deltakerne i gruppen som hadde intervensjon med kun ett sett.
+
+#Deltakerne i gruppen med flere sett var det i gjennomsnitt en 3,37%(SD 4,59) økning i muskelmasse i beina fra baseline til etter intervensjon. I gruppen med enkeltsett var det i gjennomsnitt en økning på 2.05%(SD 3,62) fra baseline til etter intervensjonen var avsluttet. 
+
+```
+
+```{r}
+# UTREGNING AV PROSENTVIS ENDRING MELLOM GRUPPENE I STYRKEØKNING
+
+strength <- strengthvolume %>%
+  group_by(exercise) %>%
+  mutate(scaled.load = load / max(load, na.rm = TRUE)) %>%
+  group_by(participant, time, sex, sets) %>%
+  summarise(combined.load = mean(scaled.load, na.rm = TRUE)) %>%
+  ungroup() %>%
+  pivot_wider(names_from = time,
+              values_from = combined.load) %>%
+  mutate(pros.change= ((post - pre) / pre) * 100) %>%
+  print()
+
+strength %>%    
+  filter(!is.na(post)) %>%
+  group_by(sets) %>%
+  summarise(m = mean(pros.change),
+            sd = sd(pros.change)) %>%
+  mutate(meansd= paste0(signif(m, 3), "(", signif(sd, 3), ")")) %>%
+  select(sets, meansd) %>%
+  print()
+
+# REGRESJONSMODELL POSTVERDIER GITT PREVERDIER OG KJØNN, FORDELT PÅ INTERVENSJONSGRUPPE. FORSKJELL I GRUPPER SAMMENLIGNET MED FLERSETTGRUPPEM (ESTIMAT), SAMT KONFIDENSINTERVALL PÅ FORSKJELL.
+ 
+m3 <- lme4::lmer(post ~ pre + sex + sets+ (1|participant), data = strength)
+
+summary(m3)
+confint(m3)
+plot(m3)
+
+```
+
+## Introduksjon
+
+Vi ønsker å undersøke hvorvidt det er en forskjell i treningsresponsen mellom grupper som gjør ett sett med styrketrening kontra flere sett med styrketrening for beinmuskulatur.
+
+## Metode
+
+#### Deltakere
+
+34 deltakere ble rekruttert til studien, og inkludert i analysen. Disse var ikke-røykende personer mellom 18 og 40 år, hvorav 17 av deltakerne var kvinner. Personer med intoleranse for lokalbedøvelse eller nedsatt muskelsktyrke som følge av tidligere eller nåværende skader ble ekskludert. Videre ble personer med treningsfrekvens høyere enn 1 treningsøkt per uke siste 12 måneder, eller medikamentbruk som kan påvirke treningsadaptasjon også ekskludert fra å delta. 7 personer ble utelatt fra dataanalysen som følge av manglende gjennomføring av treningsprotokollen. Ved oppstartstesting var det ingen forskjeller i maks styrke, relatert til kroppsvekt og kroppssammensetning mellom deltakerne som ble inkludert og deltakerne som ble ekskludert. Alle deltakerne som ble inkludert rapporterte å ha deltatt i ulike idretter fra tidligere, og litt over halvparten(n=20) medga at de gjennomførte regelmessig fysisk aktivitet ved oppstart. Halpvarten av disse opplyste at denne fysiske aktiviteten var sporadisk styrketrening, men alle under eksklusjonskriteriet om treningsfrekvens på mer enn 1 treningsøkt per uke.
+
+#### Intervensjon og testpunkter
+
+Deltakerne fulgte en treningsintervensjon over 12 uker. Etter oppstart ble styrketesting gjennomført etter henhodlsvis 3, 5 og 9 uker. Det ble også gjennomført styrke etter treningsintervensjonen var avsluttet. I tillegg til styrketesting ble deltakernes kropssammensetning mål før og etter treningsintervensjonen, i tillegg til at det ble hentet muskelbiopsier av vastus lateralis fra alle deltakere. Muskelbiopsier ble gjennomført på følgende tidspunkter; ved oppstart(Uke 0), før femte treningsøkt(Uke 2), 1t etter femte treningsøkt(Uke 2), og etter intervensjonen var avsluttet(Uke 12). Ernæringsdata fra 4-5 dager ble hentet fra deltakerne i uke 6.
+
+Styrkeøvelsene ble gjennomført unilateralt for at pasientene kunne gjennomføre ulike protokoller på ulike bein. I forkant av alle treningsøkter gjennomførte deltakerne en standardisert og progressiv oppvarmingsprotokoll. Deltakerne gjennomførte øvelser i følgende rekkefølge; unilateral beinpress, knefleksjon og kneekstensjon. Deltakerne gjorde ett sett på ett bein, og tre sett på det motsatte beinet. Enkeltsettet ble gjennomført mellom andre og tredje sett på motsatt bein. Underveis i intervensjonen ble intensiteten økt gradvis fra 10RM til 8RM og deretter til 7 RM. Hviletid. Øktprogresjon. Periodisering. Restitusjonsdrikk.
+
+#### Målinger
+
+Det ble gjennomført isokinetiske og isometriske styrketester av styrken i kneekstensjon i dynamometer (Cybex). Maks styrke ble mål som 1RM i unilateralt benpress og kneektesjon. Muskeltversnitt i kneekstensorgruppen ble målt før og etter treningsintervensjon gjennom MR. Kroppssammensetning ble målt ved hjelp av DXA. Muskelbiopsi ble hentet bilateralt fra vastus lateralis.
+
+#### Statistiske analyser
+
+For å sammenligne hvilken effekt styrketrening med kun ett enkeltsett kontra flere sett har på muskelstyrken i beina, og mengden muskelmasse(fettfri masse) har vi i denne studien sett på prosentvis endring fra baseline til etter intervensjon, i de to intervensjonsgruppene. Det har blitt regnet ut og presentert den gjennomsnittlige endringen fra baseline til etter intervensjon, med standarddavvik. De ulike intervensjonene er også sammenlignet med hjelp av en ANVOCA-modell, for å ta høyde for samvarierende variabler. Regresjonsligningen skal se på endringen etter at man tar høyde for forskjell i verdier ved pre-test og etter å ha tatt høyde for forskjell i kjønn. Det har også bitt foretatt en gjenomsnittssentrering av dataene.
+
+```{r}
+# TABELL FOR ØKNING FETTFRI MASSE PRE TIL POST FORDELT PÅ INTERVENSJONSGRUPPER 
+library(kableExtra)
+library(flextable)
+
+lbmleg <- dat %>%    
+  filter(!is.na(post)) %>%
+  group_by(sets) %>%
+  summarise(m = mean(pros.change),
+            sd = sd(pros.change)) %>%
+  mutate(meansd= paste0(signif(m, 3), "(", signif(sd, 3), ")")) %>%
+  select(sets, meansd)
+  
+  
+tabell_lbmleg <- lbmleg %>%
+mutate(sets = factor(sets, levels = c("multiple", "single"), 
+                        labels = c("Flersett", "Enkeltsett"))) %>%
+  select(sets, meansd) %>%
+  arrange(sets) %>%
+   flextable()  %>%
+  set_header_labels(sets = " ",
+                    meansd = "Tabell 2 - Økning fettfri masse i prosent")%>%
+    add_footer_row(values = "Gjennomsnittlig prosentvis endring(SD), fra pre til post", colwidths = 2) %>%
+    
+    autofit()
+tabell_lbmleg
+
+# Deltakerne i gruppen med flere sett var det i gjennomsnitt en 3,36%(SD 4,5) økning i muskelmasse i beina fra baseline til etter intervensjon. I gruppen med enkeltsett var det i gjennomsnitt en økning på 2.05%(SD 3,6) fra baseline til etter intervensjonen var avsluttet.
+```
+
+```{r}
+#TABELL ENDRING I MUSKELSTYRKE
+
+strength.change <- strength %>%    
+  filter(!is.na(post)) %>%
+  group_by(sets) %>%
+  summarise(m = mean(pros.change),
+            sd = sd(pros.change)) %>%
+  mutate(meansd= paste0(signif(m, 3), "(", signif(sd, 3), ")")) %>%
+  select(sets, meansd)
+  
+  
+tabell_strengthchange <- strength.change %>%
+mutate(sets = factor(sets, levels = c("multiple", "single"), 
+                        labels = c("Flersett", "Enkeltsett"))) %>%
+  select(sets, meansd) %>%
+  arrange(sets) %>%
+   flextable()  %>%
+  set_header_labels(sets = " ",
+                    meansd = "Tabell 3 - Økning beinstyrke i prosent")%>%
+    add_footer_row(values = "Gjennomsnittlig prosentvis endring(SD), fra pre til post", colwidths = 2) %>%
+    
+    autofit()
+tabell_strengthchange
+
+#Målt i ren prosentvis gjennomsnittlig fremgang hadde gruppen med flersett 31% (SD 14.2) fremgang fra baseline til etter intervensjon, mens gruppen med enkeltsett hadde 24.5% (SD 12.9) fremgang fra baseline til intervensjonen var avsluttet. 
+```
+
+## Resultater
+
+#### Muskelmasse
+
+Etter å ha justert for kjønn og baselineverdier viser deltakerne i gruppen med flere sett hadde i gjennomsnitt økt muskelmassen i beina med 123,5 gram mer(SD 55.17, 95% CI), enn deltakerne i gruppen som hadde intervensjon med kun ett sett. Gjennomsnittlig prosentvis endring i fra baselinetesting til fullført intervensjon er vist i Tabell 2`r tabell_lbmleg`.
+
+```{r}
+plotdata <- dxadata %>%
+  select(participant:include, sex, lean.left_leg, lean.right_leg) %>%
+  pivot_longer(names_to = "leg", 
+               values_to = "lean.legs", 
+               cols = lean.left_leg:lean.right_leg) %>%
+  mutate(leg = if_else(leg == "lean.left_leg", "L", "R"), 
+         sets = if_else(multiple == leg, "multiple", "single")) %>%
+  select(participant, time, sets, sex, leg, lean.legs) %>%
+  group_by(participant) %>%
+  mutate(n = n(), group = factor(sets, levels = c("single", "multiple")), time = factor(time, levels = c("pre", "post")))
+
+plotdata %>%
+ ggplot(aes(time, lean.legs, group = participant)) + geom_line() + theme_minimal()
+```
+
+#### Styrke
+
+Etter å ha justert for verdier ved baseline og kjønn målte gruppen som har gjennomført enkeltsett hadde en signifikant lavere verdi etter avsluttet intervensjon enn gruppen med flersett i beinstyrke. Fremgangen er målt i skalert motstand, som er motstand som en andel av maks. I skalert motstand hadde gruppen med enkeltsett gjennomsnittlig 0.029(95% CI) lavere verdier etter endt intervensjon enn gruppen med flersett.
+
+Gjennomsnittlig prosentvis endring i muskelstyrke fra baselinetesting til fullført intervensjon er vist i Tabell 3`r tabell_strengthchange`.
+
+## Konklusjon
+
+Fra baseline til etter intervensjonen var avsluttet var det en signifikant forskjell i fremgangen i gruppen med flersett sammenlignet med gruppen med enkeltsett, i både mengde muskelmasse i beina, samt muskelstyrke i bein.
+
+#### Kommentar
+
+Leverer heller et uferdig dokument til fristen, fullstendig klar over store mangler med referering og fullverdighet i introduksjon og diskusjon. Håper på tilbakemeldinger på tolkning av resultater og valg av statistiske tester.
+
+##### KOMMENTAR FRA DANIEL 
+
+En bra start! Mange ev code-chunksen inngår som det er nå i rapporten, sett knitr::opts_chunk$set(echo = FALSE) for å ha koden i bakgrunnen. Unngå å starte setninger med et tall, evt skriv ut tallet. Husk mellomrom før parenteser. Du trenger ikke å rapportere metode på data som du ikke presenterer i rapporten (eks ernæringsdata). Unngå å benevne de ulike treningsprotokollene som to ulike grupper. De samme deltakerne gjennomførte begge protokoller. Hva betyr: 123,5 gram mer(SD 55.17, 95% CI)? Når du lager resultatene mer fullstendig, husk å trekke inferens på forskjell mellom treningsprotokoller og bruk deskriptiv statistikk på resterende data. Se og generell feedback på github (IDR4000-2021)
+
+
+```{r}
+
+library(tidyverse); library(exscidata); data("strengthvolume")
+strengthvolume %>%
+  filter(exercise == "legext", time %in% c("pre", "post")) %>%
+  group_by(sets, time) %>%
+  summarise(m = mean(load, na.rm = TRUE), 
+            s = sd(load, na.rm = TRUE)) %>%
+  mutate(time = factor(time, levels = c("pre", "post"), labels = c("Pre-training", "Post-training")), 
+         sets = factor(sets, levels = c("single", "multiple"), labels = c("Single-set", "Multiple-set"))) %>%
+  ggplot(aes(time, m, color = sets)) + 
+  
+  geom_errorbar(aes(ymin = m - s, ymax = m + s), 
+                position = position_dodge(width = 0.2), 
+                width = 0.2) +
+  geom_point(position = position_dodge(width = 0.2)) +
+  
+  labs(x = "Time-point", 
+       y = "Average load (kg)", 
+       color = "Sets") +
+  
+  theme_bw() +
+  
+  theme(legend.position = c(0.1, 0.9))
+```
+
+
