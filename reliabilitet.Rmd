@@ -29,6 +29,8 @@ V<sub>O2max</sub> ble målt ved hjelp av en metabolsk analysator med miksekammer
 
 For hvert medgåtte minutt av testen ble hastigheten på møllen økt med 1km/t, helt til utmattelse, hvor testen ble avsluttet. Deltakernes hjertefrekvens ble også registrert under hele testen. Når testen ble avsluttet ble deltakerne bedt om å rapportere opplevd anstrengelse ved hjelp av Borg-skala [@borg1982]. Maksimal hjertefrekvens under testen ble også registrert. Ett minutt etter avsluttet test ble hjertefrekvens registrert, og det ble målt og analysert blodlaktat (Biosen C-line, EKF Diagnostics, Barleben, Germany).
 
+Det var 11 deltakere i studien, samtlige deltakere er studenter ved Høgskolen i Innlandet. Deskriptive data for disse deltakerne er vist i Tabell 1.
+
 ## Resultater
 
 ```{r Tabell, echo=FALSE, message=FALSE, warning=FALSE}
@@ -79,9 +81,8 @@ reliabilitet <- read_excel("reliabilitet/realabilitet uttrekning.xlsx") %>%
              L = qt(0.975, 4) * s)  # Calculate as a percentage of the mean
 ```
 
-<!-- Flytta detta tidigare i rapporten, detta ar metod. -->
 
-Det var 11 deltakere i studien, samtlige deltakere er studenter ved Høgskolen i Innlandet. Deskriptive data for disse deltakerne er vist i Tabell 1, i Figur 1 kan man se utviklingen Test 1 til Test 2 fordelt på kjønn. Det typiske målefeilet (typical error, [@hopkins2000]) fra Test 1 til Test 2 er utregnet til å være `r round(reliabilitet$cv, 2)`%.
+Figur 1 viser utviklingen Test 1 til Test 2 fordelt på kjønn. Det typiske målefeilet (typical error, [@hopkins2000]) fra Test 1 til Test 2 er utregnet til å være `r round(reliabilitet$cv, 2)`%. Det maksimale oksygenopptaket til de kvinnelige deltakerne spant seg fra 49.75 ml kg<sup>-1</sup> min<sup>-1</sup> til 54.50 til B, mens det hos de mannlige deltakerne spant seg fra 49.50 ml kg<sup>-1</sup> min<sup>-1</sup> til 62.05 ml kg<sup>-1</sup> min<sup>-1</sup>.
 
 <!-- All kod i figuren under kan settes i en pipe, lagg till figurtext till figuren med fig.cap i code chunken -->
 
