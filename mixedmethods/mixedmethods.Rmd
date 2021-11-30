@@ -22,7 +22,7 @@ data("strengthvolume")
 
 ```{r}
 library(tidyverse)
-#UTREGNING AV PROSENTVIS ENDRING MELLOM GRUPPENE I FETTFRI MASSE
+#UTREGNING AV PROSENTVIS ENDRING MELLOM BEIN I FETTFRI MASSE
 
 dat <- dxadata %>%
   select(participant:include, sex, lean.left_leg, lean.right_leg) %>%
@@ -71,7 +71,7 @@ confint(m0)
 ```
 
 ```{r}
-# UTREGNING AV PROSENTVIS ENDRING MELLOM GRUPPENE I STYRKEØKNING
+# UTREGNING AV PROSENTVIS ENDRING MELLOM BEINA I STYRKEØKNING
 
 strength <- strengthvolume %>%
   group_by(exercise) %>%
@@ -93,7 +93,7 @@ strength %>%
   select(sets, meansd) %>%
   print()
 
-# REGRESJONSMODELL POSTVERDIER GITT PREVERDIER OG KJØNN, FORDELT PÅ INTERVENSJONSGRUPPE. FORSKJELL I GRUPPER SAMMENLIGNET MED FLERSETTGRUPPEM (ESTIMAT), SAMT KONFIDENSINTERVALL PÅ FORSKJELL.
+# REGRESJONSMODELL POSTVERDIER GITT PREVERDIER OG KJØNN, FORDELT PÅ INTERVENSJON FORSKJELL I INTERVENSJON SAMMENLIGNET MED FLERSETT (ESTIMAT), SAMT KONFIDENSINTERVALL PÅ FORSKJELL.
  
 m3 <- lme4::lmer(post ~ pre + sex + sets+ (1|participant), data = strength)
 
@@ -211,7 +211,7 @@ plotdata <- dxadata %>%
   mutate(n = n(), group = factor(sets, levels = c("single", "multiple")), time = factor(time, levels = c("pre", "post")))
 
 plotdata %>%
- ggplot(aes(time, lean.legs, group = participant)) + geom_line() + theme_minimal()
+ggplot(aes(sets, lean.legs, group = participant, time, color = sex)) + geom_line() + theme_minimal()
 ```
 
 #### Styrke
