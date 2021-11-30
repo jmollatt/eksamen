@@ -107,17 +107,24 @@ plot(m3)
 
 Vi ønsker å undersøke hvorvidt det er en forskjell i treningsresponsen mellom grupper som gjør ett sett med styrketrening kontra flere sett med styrketrening for beinmuskulatur.
 
+<!--Styrketrening er et tema som fatter interessen til mange. For å vite hvordan man kan optimalisere utvikling er det viktig å vite om hvordan ulike faktorer som kan påvirke styrken. Styrketrening brukes for å overbelaste det nevromuskulære systemet for å utvikle styrke [@rhea2002]. Volum, intensitet, hyppighet og er viktige faktorer som kan påvirke denne overbelastningen [@marshall2011].
+
+Flere forskere har undersøkt forskjellen på hvordan ulike sett og reps påvirker maksimal styrke, muskel hypertrofi og kroppssammensetning. Schoenfeld og flere [@2019] gjennomførte et studie for undersøke forskjellen i hypertrofi forskjellen mellom å gjennomføre ett eller tre sett i styreprogrammet. I denne studien var det ingen signifikant forskjell mellom gruppen som gjennomførte ett sett og gruppen som gjennomførte tre sett, men begge gruppene hadde signifikant økt muskel styrke fra pre-test til post-test. Flere andre gjennomførte studier viser et annet resultat, og konkluderer med at å gjennomføre tre sett gir en statistisk signifikant økning i maksimal styrke [@rhea2002; @munn2005; @fröhlich2010]. På den andre siden konkluderer Carpinelli [@carpinelli1998], at det ikke er signifikant forskjell på ett og tre sett, og diskuterer for at ett sett holder for å få god utvikling i muskelstyrke.
+
+Dette danner grunnlaget for ønsket om å undersøke denne problemstillingen videre. Formålet med denne studien er å se på forskjell i lean bodymass og styrkeadaptasjon mellom ett og tre sett-->
+
+
 ## Metode
 
 #### Deltakere
 
-34 deltakere ble rekruttert til studien, og inkludert i analysen. Disse var ikke-røykende personer mellom 18 og 40 år, hvorav 17 av deltakerne var kvinner. Personer med intoleranse for lokalbedøvelse eller nedsatt muskelsktyrke som følge av tidligere eller nåværende skader ble ekskludert. Videre ble personer med treningsfrekvens høyere enn 1 treningsøkt per uke siste 12 måneder, eller medikamentbruk som kan påvirke treningsadaptasjon også ekskludert fra å delta. 7 personer ble utelatt fra dataanalysen som følge av manglende gjennomføring av treningsprotokollen. Ved oppstartstesting var det ingen forskjeller i maks styrke, relatert til kroppsvekt og kroppssammensetning mellom deltakerne som ble inkludert og deltakerne som ble ekskludert. Alle deltakerne som ble inkludert rapporterte å ha deltatt i ulike idretter fra tidligere, og litt over halvparten(n=20) medga at de gjennomførte regelmessig fysisk aktivitet ved oppstart. Halpvarten av disse opplyste at denne fysiske aktiviteten var sporadisk styrketrening, men alle under eksklusjonskriteriet om treningsfrekvens på mer enn 1 treningsøkt per uke.
+Det ble rekruttert 34 deltakere til denne studien, og inkludert i analysen. Disse var ikke-røykende personer mellom 18 og 40 år, hvorav 17 av deltakerne var kvinner. Personer med intoleranse for lokalbedøvelse eller nedsatt muskelsktyrke som følge av tidligere eller nåværende skader ble ekskludert. Videre ble personer med treningsfrekvens høyere enn 1 treningsøkt per uke siste 12 måneder, eller medikamentbruk som kan påvirke treningsadaptasjon også ekskludert fra å delta. Det ble utelatt 7 personer fra dataanalysen som følge av manglende gjennomføring av treningsprotokollen. Ved oppstartstesting var det ingen forskjeller i maks styrke, relatert til kroppsvekt og kroppssammensetning mellom deltakerne som ble inkludert og deltakerne som ble ekskludert. Alle deltakerne som ble inkludert rapporterte å ha deltatt i ulike idretter fra tidligere, og litt over halvparten(n=20) medga at de gjennomførte regelmessig fysisk aktivitet ved oppstart. Halpvarten av disse opplyste at denne fysiske aktiviteten var sporadisk styrketrening, men alle under eksklusjonskriteriet om treningsfrekvens på mer enn 1 treningsøkt per uke.
 
 #### Intervensjon og testpunkter
 
-Deltakerne fulgte en treningsintervensjon over 12 uker. Etter oppstart ble styrketesting gjennomført etter henhodlsvis 3, 5 og 9 uker. Det ble også gjennomført styrke etter treningsintervensjonen var avsluttet. I tillegg til styrketesting ble deltakernes kropssammensetning mål før og etter treningsintervensjonen, i tillegg til at det ble hentet muskelbiopsier av vastus lateralis fra alle deltakere. Muskelbiopsier ble gjennomført på følgende tidspunkter; ved oppstart(Uke 0), før femte treningsøkt(Uke 2), 1t etter femte treningsøkt(Uke 2), og etter intervensjonen var avsluttet(Uke 12). Ernæringsdata fra 4-5 dager ble hentet fra deltakerne i uke 6.
+Deltakerne fulgte en treningsintervensjon over 12 uker. Etter oppstart ble styrketesting gjennomført etter henhodlsvis 3, 5 og 9 uker. Det ble også gjennomført styrke etter treningsintervensjonen var avsluttet. I tillegg til styrketesting ble deltakernes kropssammensetning mål før og etter treningsintervensjonen, i tillegg til at det ble hentet muskelbiopsier av vastus lateralis fra alle deltakere. Muskelbiopsier ble gjennomført på følgende tidspunkter; ved oppstart(Uke 0), før femte treningsøkt(Uke 2), 1 time etter femte treningsøkt(Uke 2), og etter intervensjonen var avsluttet(Uke 12).
 
-Styrkeøvelsene ble gjennomført unilateralt for at pasientene kunne gjennomføre ulike protokoller på ulike bein. I forkant av alle treningsøkter gjennomførte deltakerne en standardisert og progressiv oppvarmingsprotokoll. Deltakerne gjennomførte øvelser i følgende rekkefølge; unilateral beinpress, knefleksjon og kneekstensjon. Deltakerne gjorde ett sett på ett bein, og tre sett på det motsatte beinet. Enkeltsettet ble gjennomført mellom andre og tredje sett på motsatt bein. Underveis i intervensjonen ble intensiteten økt gradvis fra 10RM til 8RM og deretter til 7 RM. Hviletid. Øktprogresjon. Periodisering. Restitusjonsdrikk.
+Styrkeøvelsene ble gjennomført unilateralt for at pasientene kunne gjennomføre ulike protokoller på ulike bein. I forkant av alle treningsøkter gjennomførte deltakerne en standardisert og progressiv oppvarmingsprotokoll. Deltakerne gjennomførte øvelser i følgende rekkefølge; unilateral beinpress, knefleksjon og kneekstensjon. Deltakerne gjorde ett sett på ett bein, og tre sett på det motsatte beinet. Enkeltsettet ble gjennomført mellom andre og tredje sett på motsatt bein. Underveis i intervensjonen ble intensiteten økt gradvis fra 10RM til 8RM og deretter til 7 RM. 
 
 #### Målinger
 
@@ -125,7 +132,7 @@ Det ble gjennomført isokinetiske og isometriske styrketester av styrken i kneek
 
 #### Statistiske analyser
 
-For å sammenligne hvilken effekt styrketrening med kun ett enkeltsett kontra flere sett har på muskelstyrken i beina, og mengden muskelmasse(fettfri masse) har vi i denne studien sett på prosentvis endring fra baseline til etter intervensjon, i de to intervensjonsgruppene. Det har blitt regnet ut og presentert den gjennomsnittlige endringen fra baseline til etter intervensjon, med standarddavvik. De ulike intervensjonene er også sammenlignet med hjelp av en ANVOCA-modell, for å ta høyde for samvarierende variabler. Regresjonsligningen skal se på endringen etter at man tar høyde for forskjell i verdier ved pre-test og etter å ha tatt høyde for forskjell i kjønn. Det har også bitt foretatt en gjenomsnittssentrering av dataene.
+For å sammenligne hvilken effekt styrketrening med kun ett enkeltsett kontra flere sett har på muskelstyrken i beina, og mengden muskelmasse(fettfri masse) har vi i denne studien sett på prosentvis endring fra baseline til etter intervensjon. Det har blitt regnet ut og presentert den gjennomsnittlige endringen fra baseline til etter intervensjon, med standarddavvik. De ulike intervensjonene er også sammenlignet med hjelp av en ANVOCA-modell, for å ta høyde for samvarierende variabler. Regresjonsligningen skal se på endringen etter at man tar høyde for forskjell i verdier ved pre-test og etter å ha tatt høyde for forskjell i kjønn. Det har også bitt foretatt en gjenomsnittssentrering av dataene.
 
 ```{r}
 # TABELL FOR ØKNING FETTFRI MASSE PRE TIL POST FORDELT PÅ INTERVENSJONSGRUPPER 
@@ -189,7 +196,7 @@ tabell_strengthchange
 
 #### Muskelmasse
 
-Etter å ha justert for kjønn og baselineverdier viser deltakerne i gruppen med flere sett hadde i gjennomsnitt økt muskelmassen i beina med 123,5 gram mer(SD 55.17, 95% CI), enn deltakerne i gruppen som hadde intervensjon med kun ett sett. Gjennomsnittlig prosentvis endring i fra baselinetesting til fullført intervensjon er vist i Tabell 2`r tabell_lbmleg`.
+Etter å ha justert for kjønn og baselineverdier ser man at det beinet deltakerne brukte til å trene flere sett gjennomsnitt økt muskelmassen med 123,5 gram mer(SD 55.17 gram, 95% CI), enn beinet som gjennomførte kun ett sett. Gjennomsnittlig prosentvis endring i fra baselinetesting til fullført intervensjon er vist i Tabell 2`r tabell_lbmleg`.
 
 ```{r}
 plotdata <- dxadata %>%
@@ -209,13 +216,34 @@ plotdata %>%
 
 #### Styrke
 
-Etter å ha justert for verdier ved baseline og kjønn målte gruppen som har gjennomført enkeltsett hadde en signifikant lavere verdi etter avsluttet intervensjon enn gruppen med flersett i beinstyrke. Fremgangen er målt i skalert motstand, som er motstand som en andel av maks. I skalert motstand hadde gruppen med enkeltsett gjennomsnittlig 0.029(95% CI) lavere verdier etter endt intervensjon enn gruppen med flersett.
+Etter å ha justert for verdier ved baseline og kjønn så man at beinet som har gjennomført trening med enkeltsett hadde en signifikant lavere styrke etter avsluttet intervensjon enn beinet som hadde gjennomført trening med flersett. Fremgangen er målt i skalert motstand, som er motstand som en andel av maks. I skalert motstand hadde beinet med enkeltsett gjennomsnittlig 0.029(95% CI) lavere verdier etter endt intervensjon enn beinet med flersett.
 
 Gjennomsnittlig prosentvis endring i muskelstyrke fra baselinetesting til fullført intervensjon er vist i Tabell 3`r tabell_strengthchange`.
 
+<!--## Diskusjon 
+
+To til tre styrkeøkter i 12 uker øker maksimal styrke i bein, og muskel hypertrofi. Disse resultatene er gjeldende for om man gjennomfører ett eller tre sett. Resultatene presentert i denne studien viser at endringen vil være større om man gjennomfører tre sett. Dette samsvarer med det store mengder av litteraturen viser [@rhea2002; @munn2005; @fröhlich2010]. Som presentert i introduksjonen viser resultatene de presenterer at tre sett har signifikant større økning enn ett sett. Rhea med flere viser til at deltakerne som kjørte tre sett hadde dobbelt så stor utvikling som deltakerne som gjennomførte ett sett (25%) etter tre uker (48%). Etter 12 uker ble det større forskjell mellom gruppene hvor deltakerne som gjennomførte tre sett hadde 56% økning, og deltakerne som gjennomførte ett sett hadde 26% økning. Dette kan være et tegn på at skilnaden mellom gruppen kan være enda større hvis samme styrkeprogram blir gjennomført i en periode som er lengre enn 12 uker.
+
+På den andre siden konkluderer Carpinelli [@carpinelli1998] som nevnt i introduksjonen at forskjellen mellom deltakerne som gjennomført ett sett og tre sett ikke var stor nok til at det var hensiktsmessig å gjennomføre tre sett. Dette understreker de med å påpeke at ved så lite forskjell vil det være lettere for folk å praktisere ett sett i sitt treningsprogram i det daglige liv. Dette er et viktig poeng å ta med seg inn i resultatene fra dette studiet da det er gjennomført på vanlige mennesker, og ikke treningsutøvere, som kan ha vanskeligheter med å få tid til å gjennomføre et styrkeprogram med tre sett på hver øvelse. Resultatene presentert over viser og at beina som gjennomførte ett sett hadde signifikant endring i lean bodymass, og i muskelstyrke-->
+
+
+<!--Hovedfunnene i denne studien er at tre sett gir en større økning i både styrke og muskelmasse enn å trene ett sett etter 12 uker med styrketrening. Den største økningen i styrke kom etter de fem første ukene. Funnene våre stemmer overens med flere av studiene som har ser på grupper (1 sett mot 3 sett) opp mot hverandre [@krieger2009; @galvão2005; @schoenfeld2016].
+
+Etter fem uker med trening var ikke forskjellen like stor som ved 12 uker. Dette kan stemme med @radaelli2014, selv om han ikke så forskjell mellom ett og tre sett. I den studien så de på effekten av seks uker hos utrente hvor forfatterne konkluderte med at ett sett gir like god effekt som tre sett hos utrente i startfasen av styrketrening [@radaelli2014]. Selv om studien vår viser at tre sett er fordelaktig også i en startfase, kan man likevel se en overlegen effekt av tre sett fra uke fem til 12. Dette tyder på at volum blir viktigere og viktigere jo lengre treningsperioden varer. I vår studie hadde vi også forsøkspersoner som til en viss grad var vant med trening, noe som vil gi dem et annet utgangspunkt enn helt utrente som @radaelli2014 så på. I motsetning til dette så @hass2000 i sin studie at ett sett var like bra som tre sett også hos trente personer, på både kort og lang sikt. Det som likevel skiller denne studien fra vår i tillegg til at vi ikke hadde to grupper, er at de så på styrketester i både overkropp og underkropp [@hass2000]. Når man ser på resultatet i studien er det signifikant forskjell i favør tre sett i leggfleksjon og generelt ikke overbevisende resultat for ett sett på underkroppsøvelser [@hass2000]. Det kan dermed virke som at tre sett er å foretrekke på underkroppen mens ett sett kan være nok på overkroppen. Denne konklusjonen stemmer godt overens med andre studier [@rønnestad2007; @paulsen2003]. Likevel kunne det vært interessant om man også ser denne effekten om man har samme studiedesign som i denne studien, hvor man hadde trent forskjellig på venstre og høye arm.
+
+I forhold til økning i muskelmasse var det en liten, men gyldig økning i vår studie. Lignende funn så @schoenfeld2019, som konkluderer med at det er en dose-respons-effekt på økning i muskelmasse. Det samme klarete ikke @galvão2005 å finne når han så på ett vs. tre sett hos eldre mennesker. Det kan potensielt forklares med at eldre trenger mer protein for å oppnå økning i muskelmasse samtidig som at de ikke er like flinke til få i seg proteiner som unge [@kraemer1999; @moore2015]. Vår studie skiller seg generelt fra andre da muskelmasseøkningen teoretisk sett er lik når begge intervensjonene skjer på samme person samtidig.
+
+### Treningsanbefaling
+
+På bakgrunn av denne studien og andre studeier nevnt over, kan man som utrent få god effekt av å trene ett sett på hele kroppen i starten av en treningsperiode. Etter ca. en måned bør man øke antall sett på underkroppsøvelsene, men kan forsette med ett sett på overkroppen. Det er også viktig at alle repetisjoner utføres som RM for å få mest mulig effektiv trening-->
+
+
+
 ## Konklusjon
 
-Fra baseline til etter intervensjonen var avsluttet var det en signifikant forskjell i fremgangen i gruppen med flersett sammenlignet med gruppen med enkeltsett, i både mengde muskelmasse i beina, samt muskelstyrke i bein.
+Fra baseline til etter intervensjonen var avsluttet var det en signifikant forskjell i fremgangen i beinet som gjennomførte trening med flersett sammenlignet med beinet som gjennomførte trening med enkeltsett. Dette gjaldt både mengden muskelmasse og muskelstyrke.
+
+<!--Etter endt studie kan man konkludere med at om man gjennomfører ett sett eller tre sett med styrketrening to til tre ganger i uken, vil man kunne se en signifikant økning i muskel styrke og hypertrofi. Ved å gjennomføre tre sett vil endringen være større enn ved ett sett. Til videre forskning kan man undersøke hvordan denne endringen vil være i en lengre periode enn 12 uker-->
 
 #### Kommentar
 
@@ -223,7 +251,13 @@ Leverer heller et uferdig dokument til fristen, fullstendig klar over store mang
 
 ##### KOMMENTAR FRA DANIEL 
 
-En bra start! Mange ev code-chunksen inngår som det er nå i rapporten, sett knitr::opts_chunk$set(echo = FALSE) for å ha koden i bakgrunnen. Unngå å starte setninger med et tall, evt skriv ut tallet. Husk mellomrom før parenteser. Du trenger ikke å rapportere metode på data som du ikke presenterer i rapporten (eks ernæringsdata). Unngå å benevne de ulike treningsprotokollene som to ulike grupper. De samme deltakerne gjennomførte begge protokoller. Hva betyr: 123,5 gram mer(SD 55.17, 95% CI)? Når du lager resultatene mer fullstendig, husk å trekke inferens på forskjell mellom treningsprotokoller og bruk deskriptiv statistikk på resterende data. Se og generell feedback på github (IDR4000-2021)
+En bra start! Mange ev code-chunksen inngår som det er nå i rapporten, sett knitr::opts_chunk$set(echo = FALSE) for å ha koden i bakgrunnen. 
+
+Unngå å starte setninger med et tall, evt skriv ut tallet. Husk mellomrom før parenteser. Du trenger ikke å rapportere metode på data som du ikke presenterer i rapporten (eks ernæringsdata).
+
+Unngå å benevne de ulike treningsprotokollene som to ulike grupper.
+
+De samme deltakerne gjennomførte begge protokoller. Hva betyr: 123,5 gram mer(SD 55.17, 95% CI)? Når du lager resultatene mer fullstendig, husk å trekke inferens på forskjell mellom treningsprotokoller og bruk deskriptiv statistikk på resterende data. Se og generell feedback på github (IDR4000-2021)
 
 
 ```{r}
