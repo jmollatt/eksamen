@@ -1,0 +1,51 @@
+---
+title: "diskusjon"
+author: "Jacob Mollatt"
+date: "12/1/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+<!--## Diskusjon 
+
+To til tre styrkeøkter i 12 uker øker maksimal styrke i bein, og muskel hypertrofi. Disse resultatene er gjeldende for om man gjennomfører ett eller tre sett. Resultatene presentert i denne studien viser at endringen vil være større om man gjennomfører tre sett. Dette samsvarer med det store mengder av litteraturen viser [@rhea2002; @munn2005; @fröhlich2010]. Som presentert i introduksjonen viser resultatene de presenterer at tre sett har signifikant større økning enn ett sett. Rhea med flere viser til at deltakerne som kjørte tre sett hadde dobbelt så stor utvikling som deltakerne som gjennomførte ett sett (25%) etter tre uker (48%). Etter 12 uker ble det større forskjell mellom gruppene hvor deltakerne som gjennomførte tre sett hadde 56% økning, og deltakerne som gjennomførte ett sett hadde 26% økning. Dette kan være et tegn på at skilnaden mellom gruppen kan være enda større hvis samme styrkeprogram blir gjennomført i en periode som er lengre enn 12 uker.
+
+På den andre siden konkluderer Carpinelli [@carpinelli1998] som nevnt i introduksjonen at forskjellen mellom deltakerne som gjennomført ett sett og tre sett ikke var stor nok til at det var hensiktsmessig å gjennomføre tre sett. Dette understreker de med å påpeke at ved så lite forskjell vil det være lettere for folk å praktisere ett sett i sitt treningsprogram i det daglige liv. Dette er et viktig poeng å ta med seg inn i resultatene fra dette studiet da det er gjennomført på vanlige mennesker, og ikke treningsutøvere, som kan ha vanskeligheter med å få tid til å gjennomføre et styrkeprogram med tre sett på hver øvelse. Resultatene presentert over viser og at beina som gjennomførte ett sett hadde signifikant endring i lean bodymass, og i muskelstyrke-->
+
+
+<!--Hovedfunnene i denne studien er at tre sett gir en større økning i både styrke og muskelmasse enn å trene ett sett etter 12 uker med styrketrening. Den største økningen i styrke kom etter de fem første ukene. Funnene våre stemmer overens med flere av studiene som har ser på grupper (1 sett mot 3 sett) opp mot hverandre [@krieger2009; @galvão2005; @schoenfeld2016].
+
+Etter fem uker med trening var ikke forskjellen like stor som ved 12 uker. Dette kan stemme med @radaelli2014, selv om han ikke så forskjell mellom ett og tre sett. I den studien så de på effekten av seks uker hos utrente hvor forfatterne konkluderte med at ett sett gir like god effekt som tre sett hos utrente i startfasen av styrketrening [@radaelli2014]. Selv om studien vår viser at tre sett er fordelaktig også i en startfase, kan man likevel se en overlegen effekt av tre sett fra uke fem til 12. Dette tyder på at volum blir viktigere og viktigere jo lengre treningsperioden varer. I vår studie hadde vi også forsøkspersoner som til en viss grad var vant med trening, noe som vil gi dem et annet utgangspunkt enn helt utrente som @radaelli2014 så på. I motsetning til dette så @hass2000 i sin studie at ett sett var like bra som tre sett også hos trente personer, på både kort og lang sikt. Det som likevel skiller denne studien fra vår i tillegg til at vi ikke hadde to grupper, er at de så på styrketester i både overkropp og underkropp [@hass2000]. Når man ser på resultatet i studien er det signifikant forskjell i favør tre sett i leggfleksjon og generelt ikke overbevisende resultat for ett sett på underkroppsøvelser [@hass2000]. Det kan dermed virke som at tre sett er å foretrekke på underkroppen mens ett sett kan være nok på overkroppen. Denne konklusjonen stemmer godt overens med andre studier [@rønnestad2007; @paulsen2003]. Likevel kunne det vært interessant om man også ser denne effekten om man har samme studiedesign som i denne studien, hvor man hadde trent forskjellig på venstre og høye arm.
+
+I forhold til økning i muskelmasse var det en liten, men gyldig økning i vår studie. Lignende funn så @schoenfeld2019, som konkluderer med at det er en dose-respons-effekt på økning i muskelmasse. Det samme klarete ikke @galvão2005 å finne når han så på ett vs. tre sett hos eldre mennesker. Det kan potensielt forklares med at eldre trenger mer protein for å oppnå økning i muskelmasse samtidig som at de ikke er like flinke til få i seg proteiner som unge [@kraemer1999; @moore2015]. Vår studie skiller seg generelt fra andre da muskelmasseøkningen teoretisk sett er lik når begge intervensjonene skjer på samme person samtidig.
+
+### Treningsanbefaling
+
+På bakgrunn av denne studien og andre studeier nevnt over, kan man som utrent få god effekt av å trene ett sett på hele kroppen i starten av en treningsperiode. Etter ca. en måned bør man øke antall sett på underkroppsøvelsene, men kan forsette med ett sett på overkroppen. Det er også viktig at alle repetisjoner utføres som RM for å få mest mulig effektiv trening-->
+
+## Konklusjon
+
+<!--Etter endt studie kan man konkludere med at om man gjennomfører ett sett eller tre sett med styrketrening to til tre ganger i uken, vil man kunne se en signifikant økning i muskel styrke og hypertrofi. Ved å gjennomføre tre sett vil endringen være større enn ved ett sett. Til videre forskning kan man undersøke hvordan denne endringen vil være i en lengre periode enn 12 uker-->

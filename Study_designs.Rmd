@@ -2,12 +2,13 @@
 title: "ARBEIDSKRAV 4"
 author: "Jacob Mollatt"
 date: "11-11-2021"
+latex_engine: xelatex
 output:
-  html_document:
-    df_print: paged
+  pdf_document: default
   word_document:
     reference_docx: resources/template.docx
-  pdf_document: default
+  html_document:
+    df_print: paged
 bibliography: resources/references.bib
 csl: resources/vancouver.csl
 ---
