@@ -3,8 +3,7 @@ title: "Arbeidskrav5"
 author: "Jacob Mollatt"
 date: "11/21/2021"
 output:
-  pdf_document: default
-  html_document: default
+  pdf_document:
   latex_engine: xelatex
 ---
 

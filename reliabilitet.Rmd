@@ -79,9 +79,8 @@ reliabilitet <- read_excel("reliabilitet/realabilitet uttrekning.xlsx") %>%
 ```
 
 
-Figur 1 viser utviklingen Test 1 til Test 2 fordelt på kjønn. Det typiske målefeilet (typical error, [@hopkins2000]) fra Test 1 til Test 2 er utregnet til å være `r round(reliabilitet$cv, 2)`%. Det maksimale oksygenopptaket til de kvinnelige deltakerne spant seg fra 49.75 ml kg<sup>-1</sup> min<sup>-1</sup> til 54.50 til B, mens det hos de mannlige deltakerne spant seg fra 49.50 ml kg<sup>-1</sup> min<sup>-1</sup> til 62.05 ml kg<sup>-1</sup> min<sup>-1</sup>.
+Figur 1 viser utviklingen Test 1 til Test 2 fordelt på kjønn. Det typiske målefeilet (typical error, [@hopkins2000]) fra Test 1 til Test 2 er utregnet til å være `r round(reliabilitet$cv, 2)`%. Det maksimale oksygenopptaket til de kvinnelige deltakerne spant seg fra 49.75 ml kg<sup>-1</sup> min<sup>-1</sup> til 54.50, mens det hos de mannlige deltakerne spant seg fra 49.50 ml kg<sup>-1</sup> min<sup>-1</sup> til 62.05 ml kg<sup>-1</sup> min<sup>-1</sup>.
 
-<!-- All kod i figuren under kan settes i en pipe, lagg till figurtext till figuren med fig.cap i code chunken -->
 
 ```{r Figur, echo=FALSE, message=FALSE, warning=FALSE, fig.cap = "V<sub>O2max</sub> ved Test 1 og Test 2."}
 vo2data %>%
