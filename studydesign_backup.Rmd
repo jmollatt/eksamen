@@ -4,7 +4,6 @@ author: "Jacob Mollatt"
 date: "11-11-2021"
 output:
   html_document
-  
 ---
 
 # Studiedesign
@@ -68,20 +67,15 @@ Tabell1 <- read_excel("resources/Tabell.xlsx")
 
 #### Statistiske analyser.
 
-Hickey 2020 
-Intention-to-treat analyse ble brukt til å undersøke protokollens effekt på antall dager til retur til idrett, og antallet re-skader, gjennom å bruke en Cox--regresjonsmodell.Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. (survival package i R, versjon 3.4.3) 
+Hickey 2020 Intention-to-treat analyse ble brukt til å undersøke protokollens effekt på antall dager til retur til idrett, og antallet re-skader, gjennom å bruke en Cox--regresjonsmodell.Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. (survival package i R, versjon 3.4.3)
 
-Askling 2013
-Shapiro-Wilk W test ble brukt til å undersøke om data var normalfordelt, noe de viste seg å ikke være. Mann-Withney U test ble brukt til å undersøke forskjeller i deskriptive data, men også til å undersøke forskjell i tid til retur til idrett mellom protokollene. Forfatterne brukte også Spearman Rank order correlations for å undersøke hvilken korrelasjon som fantes mellom tid til retur til idrett, MR-funn og kliniske funn. 
+Askling 2013 Shapiro-Wilk W test ble brukt til å undersøke om data var normalfordelt, noe de viste seg å ikke være. Mann-Withney U test ble brukt til å undersøke forskjeller i deskriptive data, men også til å undersøke forskjell i tid til retur til idrett mellom protokollene. Forfatterne brukte også Spearman Rank order correlations for å undersøke hvilken korrelasjon som fantes mellom tid til retur til idrett, MR-funn og kliniske funn.
 
-Askling 2014
-Shapiro-Wilk W test ble brukt til å undersøke om data var normalfordelt, noe de viste seg å ikke være. Mann-Withney U test ble brukt til å undersøke forskjeller i deskriptive data, men også til å undersøke forskjell i tid til retur til idrett mellom protokollene. Forfatterne brukte også Spearman Rank order correlations for å undersøke hvilken korrelasjon som fantes mellom tid til retur til idrett, MR-funn og kliniske funn 
+Askling 2014 Shapiro-Wilk W test ble brukt til å undersøke om data var normalfordelt, noe de viste seg å ikke være. Mann-Withney U test ble brukt til å undersøke forskjeller i deskriptive data, men også til å undersøke forskjell i tid til retur til idrett mellom protokollene. Forfatterne brukte også Spearman Rank order correlations for å undersøke hvilken korrelasjon som fantes mellom tid til retur til idrett, MR-funn og kliniske funn
 
-Hamid 2014 
-Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. Cox regresjonsanalyse for å evaluere effekt av intervensjon og andre covariater på tid til retur. 
+Hamid 2014 Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. Cox regresjonsanalyse for å evaluere effekt av intervensjon og andre covariater på tid til retur.
 
-Hamilton 2015
-Pearson Chi-squared test på kategoriske data og one-way ANOVA mellom gruppene med kontinuerlige data. Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. Cox regresjonsmodell og linære regresjonsmodeller ble brukt for å se på effekt av intervensjon på tid til retur til idrett.
+Hamilton 2015 Pearson Chi-squared test på kategoriske data og one-way ANOVA mellom gruppene med kontinuerlige data. Kaplan-Meier metode ble brukt for å sammenligne kumulativ survival rate med tid til retur til idrett. Cox regresjonsmodell og linære regresjonsmodeller ble brukt for å se på effekt av intervensjon på tid til retur til idrett.
 
 ## Resultater
 

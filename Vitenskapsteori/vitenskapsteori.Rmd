@@ -2,11 +2,13 @@
 title: "Arbeidskrav_vitenskapsteori"
 author: "Jacob Mollatt"
 date: "11/28/2021"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 1. Falsifikasjonisme
