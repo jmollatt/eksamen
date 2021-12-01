@@ -4,12 +4,13 @@ author: "Jacob Mollatt"
 date: "11/21/2021"
 output:
   pdf_document:
-  latex_engine: xelatex
+    latex_engine: xelatex
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
 
 ```{r}
 library(exscidata)
@@ -128,7 +129,7 @@ Det ble gjennomført isokinetiske og isometriske styrketester av styrken i kneek
 
 For å sammenligne hvilken effekt styrketrening med kun ett enkeltsett kontra flere sett har på muskelstyrken i beina, og mengden muskelmasse(fettfri masse) har vi i denne studien sett på prosentvis endring fra baseline til etter intervensjon. Det har blitt regnet ut og presentert den gjennomsnittlige endringen fra baseline til etter intervensjon, med standarddavvik. De ulike intervensjonene er også sammenlignet med hjelp av en ANVOCA-modell, for å ta høyde for samvarierende variabler. Regresjonsligningen skal se på endringen etter at man tar høyde for forskjell i verdier ved pre-test og etter å ha tatt høyde for forskjell i kjønn. Det har også bitt foretatt en gjenomsnittssentrering av dataene.
 
-```{r}
+```{r, set_flextable_defaults(fonts_ignore=TRUE)}
 # TABELL FOR ØKNING FETTFRI MASSE PRE TIL POST FORDELT PÅ INTERVENSJONSGRUPPER 
 library(kableExtra)
 library(flextable)
